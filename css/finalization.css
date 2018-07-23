@@ -1,12 +1,116 @@
-h1 { font-size:2.0em; }
-h2 { font-size:1.8em; }
-h3 { font-size:1.2em; }
-h4.required { font-size:1.2em; color:red; }
-h4.notrequired { font-size:1.2em; color:gray; }
-h5 { font-size:1.0em; color:gray; }
-div.choice { border:1px solid gray; background-color:#EEEEEE; padding:10px; min-height:180px; }
-input.dosubmit { font-size:1.1em; font-weight:bold; height:50px; }
-a, a:link, a:active, a:visited, a:hover {
-	color: #0099CC;
-	text-decoration: underline;
-}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+
+  	body {
+		width: 100%;
+		height: auto;
+		overflow: auto;
+		margin: 0;
+		position: absolute;
+		background-color: #31342B;
+	  }
+
+  	.card {
+		position: absolute;
+		background-color: white;
+		box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19)
+	}
+
+	.content {
+		padding: 15px;
+	}
+
+	.header {
+		background-color: #014983;
+		width: 100%;
+		height: 100px;
+	}
+
+	.header-image {
+		padding: 10px;
+		height: 100%;
+		width: auto;
+	}
+
+	.button {
+		background-color: #00AEEF;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 1.5em;
+		cursor: pointer;
+		margin: 10px;
+	}
+
+	.button:hover {
+		filter: drop-shadow(2px 2px 2px black);
+	}
+
+	.timesheet-link {
+		background-color: #014983;
+		padding: 5px;
+	}
+
+  /* Mobile Styles */
+  @media only screen and (max-width: 1400px) {
+
+	.card {
+		width: 90vw;
+		height: auto;
+		position: absolute;
+		left: 5vw;
+		top: 5vh;
+		margin-bottom: 5vh;
+	}
+  }
+  
+  /* Desktop Styles */
+  @media only screen and (min-width: 1201px) {
+		.card {
+			width: 60vw;
+			height: auto;
+			position: absolute;
+			left: 20vw;
+			top: 5vh;
+			margin-bottom: 5vh;
+		}
+	}
+	
+		div.choice { 
+			border:1px solid gray; 
+			background-color:#EEEEEE; 
+			padding:10px; 
+			min-height:180px;
+	}
+
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 5px
+	}
+
+	.tableContainer {
+		overflow-x:auto;
+	}
+
+	.contactTable {
+		width: auto;
+		background-color: white;
+	}
+
+	th {
+		background-color: #014983;
+		color: white;
+		border: 0;
+	}
+
+	.textInput {
+		font-size: 1.2em;
+		padding: 5px;
+	}
