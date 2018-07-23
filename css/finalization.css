@@ -1,0 +1,12 @@
+h1 { font-size:2.0em; }
+h2 { font-size:1.8em; }
+h3 { font-size:1.2em; }
+h4.required { font-size:1.2em; color:red; }
+h4.notrequired { font-size:1.2em; color:gray; }
+h5 { font-size:1.0em; color:gray; }
+div.choice { border:1px solid gray; background-color:#EEEEEE; padding:10px; min-height:180px; }
+input.dosubmit { font-size:1.1em; font-weight:bold; height:50px; }
+a, a:link, a:active, a:visited, a:hover {
+	color: #0099CC;
+	text-decoration: underline;
+}

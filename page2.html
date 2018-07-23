@@ -1,0 +1,471 @@
+
+
+        <html>
+        <head>
+        <title>Gordon Registration Help</title>
+        <link rel="stylesheet" type="text/css" href="css/gosite.css">
+	<link rel="stylesheet" type="text/css" href="css/finalization.css">
+	<script type="text/javascript" src="http//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	updateCellPhoneUI();
+
+});
+
+function updateCellPhoneUI()
+{
+	var bVisible = $("#chkCellPhoneVisible")[0].checked==true;
+	var bNone = $("#chkNoCellPhone")[0].checked==true;
+	var sPhone = $("#txtCellPhone").val();
+	
+	$("#txtCellPhone")[0].disabled = bNone;
+	$("#chkCellPhoneVisible")[0].disabled = bNone;
+
+	$("#txtCellPhone").css("background-color",(bNone ? "#eee" : "#fff"));
+	$("#txtCellPhone").css("border","inset 1px #eee");
+
+	if(bNone)
+		$("#txtCellPhone").val("");
+}
+
+function getel(index,suffix) {
+	var name = "txtEmerg" + index + suffix;
+	return $("*[name=" + name + "]");
+}
+function initIntlCheckboxes(total)
+{
+	for(var i=1; i<=total; i++)
+	{
+		var el = getel(i, "International");
+		el.click(function() { _updateIntlUI($(this)); });
+		_updateIntlUI(el);
+	}
+}
+function _updateIntlUI(sender, e) {
+
+	var chk = $(sender);
+	var nam = chk.attr("name").replace("International","");
+	var idx = nam.replace("txtEmerg","");
+	var home = $("input[name=" + nam+"HomePhone" + "]");
+	var mobile = $("input[name=" + nam+"MobilePhone" + "]");
+
+	var divLocal = $("#emergHeaderPhoneLocal"+idx);
+	var divIntl = $("#emergHeaderPhoneIntl"+idx);
+
+	var isChecked = ($(chk).filter(':checked').length != 0);
+
+	home.attr("readonly", isChecked); 
+	mobile.attr("readonly", isChecked); 
+
+	if(isChecked)
+	{
+		divIntl.show();
+		divLocal.hide();
+	}
+	else
+	{
+		divLocal.show();
+		divIntl.hide();
+	}
+
+	var chks = $("input[name*=txtEmerg]").filter(':checked');
+	isChecked = (chks.length > 0);
+	$("#emergHeaderPhoneLocal").css({ 'visibility': (isChecked ? 'collapse' : 'visible'), 'display': (isChecked ? 'none' : 'inline') });
+	$("#emergHeaderPhoneIntl").css({ 'visibility': (!isChecked ? 'collapse' : 'visible'), 'display': (!isChecked ? 'none' : 'inline') });
+}
+
+</script>
+        </head>
+        <body>
+		<table cellspacing="0" cellpadding="3">
+		<!--Begin Header-->
+		<tr><td>
+		    <table cellspacing="0" cellpadding="3">
+		    <tr bgcolor="#1D5E97"><td><img src="images/gologo.gif" alt="Go.Gordon.edu" width="160" height="84" border="0"></td>
+			<td><img src="images/spacer.gif" alt="" width="624" height="84" border="0"></td></tr>
+		    </table>
+		</td></tr>
+		<!-- End Header-->           
+		<tr><td>
+		<table cellspacing="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr><td width="100%">
+			<table width="800" cellpadding="20" cellspacing="0">
+			<tr><td>
+
+
+
+
+	
+
+<h1>Academic Check-In</h1>
+
+<h2>Step 2: Confirm Required Check-In Information</h2>
+<h3>Please provide your emergency contact information and verify your IPEDS and FERPA status.</h3>
+
+
+<form name="Form1" action="finalization_post.cfm?FA 2018" method="post">
+<input type="hidden" name="checksum_uiversion" value="FA 2018" />
+
+
+<div class="choice">
+	<h3><b>Who are your emergency contacts?</b></h3>
+<h3><span style="color:red;font-weight:normal;">HIPAA regulations prohibit sharing of medical information regarding anyone age 18 or over without consent. </span></h3> 
+<h3><span style="color:red;font-weight:normal;">By listing emergency contacts below, I authorize the Gordon College staff to share medical information with my emergency contact(s) during my enrollment at Gordon College. I hereby authorize Gordon College to contact the following person(s) listed below in the event of a medical emergency. </span></h3> 
+
+	<h3>
+	<table border="1">
+	<tr>
+		<td></td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Relationship</td>
+		<td><span title="International Phone Number">Intl.</span></td>
+		<td>
+			<div id="emergHeaderPhoneLocal">
+				<div style="width:110px;float:left;">Home Phone #</div>
+				Mobile / Cell Phone #
+			</div>
+			<div id="emergHeaderPhoneIntl">
+				Home / Mobile Phone #
+			</div>
+		</td>
+	</tr>
+	
+		<tr>
+			<td nowrap="nowrap">Emergency Contact 1*:</td>
+			<td><input type="text" name="txtEmerg1FirstName" size="15" maxlength="15" value="Beth" /></td>
+			<td><input type="text" name="txtEmerg1LastName" size="15" value="Abbot" /></td>
+			<td><input type="text" name="txtEmerg1Relationship" size="15" value="Mother" /></td>
+			<td><input type="checkbox" name="txtEmerg1International"  title="Check this box if you wish to enter an International phone number..." /></td>
+			<td>
+				<div id="emergHeaderPhoneLocal1">
+					<input type="text" name="txtEmerg1HomePhone" size="15" value="8609838973          " style="width:75px" />&nbsp;
+					<input type="text" name="txtEmerg1MobilePhone" size="15" value="                    " style="width:75px" />
+				</div>
+				<div id="emergHeaderPhoneIntl1">
+					<input type="text" name="txtEmerg1Notes" style="width:90%;" value="" />&nbsp;
+				</div>
+			</td>
+		</tr>
+	
+		<tr>
+			<td nowrap="nowrap">Emergency Contact 2*:</td>
+			<td><input type="text" name="txtEmerg2FirstName" size="15" maxlength="15" value="Brian" /></td>
+			<td><input type="text" name="txtEmerg2LastName" size="15" value="Abbot" /></td>
+			<td><input type="text" name="txtEmerg2Relationship" size="15" value="Father" /></td>
+			<td><input type="checkbox" name="txtEmerg2International"  title="Check this box if you wish to enter an International phone number..." /></td>
+			<td>
+				<div id="emergHeaderPhoneLocal2">
+					<input type="text" name="txtEmerg2HomePhone" size="15" value="8607528340          " style="width:75px" />&nbsp;
+					<input type="text" name="txtEmerg2MobilePhone" size="15" value="                    " style="width:75px" />
+				</div>
+				<div id="emergHeaderPhoneIntl2">
+					<input type="text" name="txtEmerg2Notes" style="width:90%;" value="" />&nbsp;
+				</div>
+			</td>
+		</tr>
+	
+		<tr>
+			<td nowrap="nowrap">Emergency Contact 3*:</td>
+			<td><input type="text" name="txtEmerg3FirstName" size="15" maxlength="15" value="Seward" /></td>
+			<td><input type="text" name="txtEmerg3LastName" size="15" value="ABBOFordT" /></td>
+			<td><input type="text" name="txtEmerg3Relationship" size="15" value="Grandfather" /></td>
+			<td><input type="checkbox" name="txtEmerg3International"  title="Check this box if you wish to enter an International phone number..." /></td>
+			<td>
+				<div id="emergHeaderPhoneLocal3">
+					<input type="text" name="txtEmerg3HomePhone" size="15" value="8604787188          " style="width:75px" />&nbsp;
+					<input type="text" name="txtEmerg3MobilePhone" size="15" value="                    " style="width:75px" />
+				</div>
+				<div id="emergHeaderPhoneIntl3">
+					<input type="text" name="txtEmerg3Notes" style="width:90%;" value="" />&nbsp;
+				</div>
+			</td>
+		</tr>
+	
+	</table>
+	</h3>
+	<script type="text/javascript">
+		initIntlCheckboxes(3);
+	</script>
+
+	<h5>If, during the semester your emergency contact information must be updated, please contact Student Life at 978.867.4263.</h5>
+
+	<h5><i>For international contact phone numbers, check the 'Intl.' checkbox to enter information.</i></h5>
+
+<p>&nbsp;</p>
+
+	<h3><b>How should the College contact you?</b></h3>
+	<h5><span style="font-weight:normal;color:black;">Please provide your <b style="color:red;">cell phone</b> number, if you have one:</span></h5>
+	<div style="height:60px;">
+	<h3>
+	<div style="clear:both;">
+		<div style="width:200px;float:left;"><b>Your Cell Phone Number:&nbsp;&nbsp;</b></div>
+		<div style="float:left;"><input type="text" name="txtCellPhone" id="txtCellPhone" size="30" style="width:200px;" /><small style="font-weight:normal;color:gray"> (example: 123-456-7890)</small></div>
+	</div>
+	</h3>
+	<h5>
+	<div style="clear:both;margin-top:5px;">
+		<div style="width:200px;float:left;">&nbsp;&nbsp;</b></div>
+		<div style="width:200px;float:left;text-align:right">
+			<label for="chkCellPhoneVisible" style="font-weight:normal">Publish on People Search</label>
+			&nbsp;<input type="checkbox" name="chkCellPhoneVisible" id="chkCellPhoneVisible" onClick="if(this.checked!=true){alert('This phone number will be made private from other students, but may still be used to contact you regarding critical College business.');}" />
+		</div>
+	</div>
+	</h5>
+	<h5>
+	<div style="clear:both;margin-top:5px;">
+		<div style="width:200px;float:left;">&nbsp;&nbsp;</b></div>
+		<div style="width:200px;float:left;text-align:right">
+			<label for="chkNoCellPhone" style="font-weight:normal">(I do not have a cell phone)</label>
+			&nbsp;<input type="checkbox" name="chkNoCellPhone" id="chkNoCellPhone" onClick="updateCellPhoneUI(); if(this.checked==true){alert('By not reporting a cell phone number, you are opting out of critical academic, billing, and account communications by telephone.\n\nYour legal/home/permanent phone number on file may be used for these purposes instead of a cell phone number.');}" />
+		</div>
+	</div>
+	</h5>
+	</div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="choice">
+	<h3><b>Federal Reporting Status</b></h3>
+
+	<h5>The federal government has created new aggregate categories for reporting race and ethnicity.  Reporting these will be mandatory for Gordon College starting fall 2010.  The categories describe groups to which individuals belong or identify with, not scientific definitions of anthropological origins.</h5>
+	<h5>In order to transition to the new data standards, we need students to self-identify their ethnicity and race by responding to two questions.</h5>
+	<h5>The first question asks students to designate ethnicity as either:
+	<ul>
+		<li>Hispanic or Latino<br />or</li>
+		<li>Not Hispanic or Latino</li>
+	</ul>
+	</h5>
+	<h5>Note:  The federal government considers “Hispanic/Latino” to be an ethnicity, not a race.  It defines this ethnicity as: A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture of origin, regardless of race. That is why this question is asked separately and Hispanic/Latino is no longer listed as a race identification category.</h5>
+	<h5>The second question asks individuals to indicate one or more races that apply from the following (you can select multiple categories):
+	<ul>
+		<li>American Indian or Alaska Native<br />
+			<dd />(Having origins in any of the original peoples of North and South American (including Central America)
+		</li>
+		<li>Asian</li>
+		<li>Black or African American</li>
+		<li>Native Hawaiian or Other Pacific Islander</li>
+		<li>White<br />
+			<dd />(Having origins in any of the original peoples of Europe, North Africa, or the Middle East)
+		</li>
+ 	</ul>
+
+	<h3>Please provide the following information:</h3>
+
+
+
+	<table width="100%" border="0">
+	<tr>
+		<td width="50%">
+			<table width="100%" border="0">
+			<tr><td valign="top" width="1%">
+				Ethnicity:&nbsp;
+				</td>
+				<td>
+					
+							<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-2" value="-2" /><label for="rdoEthnicity_-2">Not Hispanic/Latino</label><br />
+						
+							<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-1" value="-1" /><label for="rdoEthnicity_-1">Hispanic/Latino</label><br />
+						
+				</td></tr>
+			</table>
+		</td>
+		<td width="50%">
+			<table width="100%" border="0">
+			<tr><td valign="top" width="1%">
+				Race:&nbsp;
+				</td>
+				<td>
+					
+							<input type="checkbox" name="chkRaces" id="chkRaces_4" value="4" /><label for="chkRaces_4">American Indian or Alaska Native</label><br />
+						
+							<input type="checkbox" name="chkRaces" id="chkRaces_5" value="5" /><label for="chkRaces_5">Asian</label><br />
+						
+							<input type="checkbox" name="chkRaces" id="chkRaces_6" value="6" /><label for="chkRaces_6">Black or African American</label><br />
+						
+							<input type="checkbox" name="chkRaces" id="chkRaces_7" value="7" /><label for="chkRaces_7">Native Hawaiian or Other Pacific Islander</label><br />
+						
+							<input type="checkbox" name="chkRaces" id="chkRaces_8" value="8" /><label for="chkRaces_8">White</label><br />
+						
+				</td></tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+
+	<h5><i>For questions or more information regarding this section, please contact the registrar's office at 978.867.4243 or <a href="mailto:registrar@gordon.edu">registrar@gordon.edu</a>.</i></h5>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="choice">
+	<h3><b>Notification of Rights Under FERPA</b></h3>
+	<textarea rows="10" cols="120" style="width:100%;" readonly="readonly">
+The Family Educational Rights and Privacy Act (FERPA) affords students certain rights with respect to their education records.
+
+They are:
+
+1. The right to inspect and review the student's education records within 45 days of the day the College receives a request for access. Students should submit to the registrar, dean, head of the academic department, or other appropriate official, written requests that identify the record(s) they wish to inspect. The College official will make arrangements for access and notify the student of the time and place where the records may be inspected. If the records are not maintained by the College official to whom the request was submitted, that official shall advise the student of the correct official to whom the request should be addressed. 
+
+2. The right to request the amendment of the student's education records that the student believes are inaccurate or misleading. Students may ask the College to amend a record that they believe is inaccurate or misleading. They should write the College official responsible for the record, clearly identify the part of the record they want changed, and specify why it is inaccurate or misleading. Grades, or an evaluation in lieu of grades, cannot be appealed through FERPA. 
+
+If the College decides not to amend the record as requested by the student, the College will notify the student of the decision and advise the student of his or her right to a hearing regarding the request for amendment. Additional information regarding the hearing procedures will be provided to the student when notified of the right to a hearing. 
+
+3. The right to consent to disclosures of personally identifiable information contained in the student's education records, except to the extent that FERPA authorized disclosure without consent. One exception which permits disclosure without consent is disclosure to school officials with legitimate educational interests. A school official is a person employed by the College in an administrative, supervisory, academic or research, or support staff position (including law enforcement unit personnel and health staff); a person or company with whom the College has contracted (such as an attorney, auditor, the National Student Loan Clearinghouse, or a collection agent); a person serving on the Board of Trustees; or a student serving on an of ficial committee, such as a disciplinary or grievance committee, or assisting another school official in performing his or her tasks. 
+
+A school official has a legitimate educational interest if the official needs to review an education record in order to fulfill his or her professional responsibility. 
+
+4. The right to file a complaint with the U.S. Department of Education concerning alleged failures by Gordon College to comply with the requirements of FERPA. The name and address of the office that administers FERPA is: 
+
+Family Policy Compliance Office
+U.S. Department of Education
+400 Maryland Avenue, SW
+Washington, DC 20202-8520
+
+FERPA permits release of student "directory information" upon inquiry unless the student specifically requests, in writing and within the first two weeks of a semester, that the College not release such information.  Students should be aware that if a FERPA Hold is placed on their record, one of the effects will be that information on attendance at the College will be suppressed, so that if a loan company, rental agent or perspective employer calls to confirm enrollment or degree information, they will be informed that we have no record of that person at Gordon College.
+Directory information is defined as a student's:
+
+- name
+- month/day and place of birth
+- major field of study
+- full- or part-time status
+- participation in officially recognized activities and sports
+- dates of attendance
+- degrees, honors and awards received
+- most recent previous educational agency or institution attended, and 
+- photograph
+- weights and heights of members of athletic teams
+                                                    
+
+Campus Information
+
+Gordon's privacy policy also allows access by on-campus members of the Gordon community to current and permanent addresses, telephone listings, email addresses, class schedules, listings on course rosters, and photograph. This information, however, should never be shared outside the Gordon community.  All other personal data is restricted to only Gordon faculty, staff and student workers, pursuant to their College responsibilities, or to contractual agents of the College, such as an attorney, auditor, the National Student Loan Clearinghouse or a collection agent.  Students may request that their photograph or address information not be made available on the go.gordon.edu website, by notifying the appropriate offices through the available links.
+
+This will confirm that I have read and understand the policy described above.
+
+
+Generic Campus Photographs
+
+Gordon College also arranges for photographs of classes, campus scenes, etc., to be taken for use in publications or the web site. The students in these photographs are not identified and the photos are simply to represent typical College scenes and events.   Please check below to indicate that you consent to having your photograph used in this way.
+
+I hereby agree that the College may use my photograph, without identification, in Gordon College publications or on the Gordon College website.	</textarea>
+	<p></p>
+
+	<h5><i>If you would like your information blocked, please contact the registrar's office at 978.867.4243 or <a href="mailto:registrar@gordon.edu">registrar@gordon.edu</a>.</i></h5>
+
+	<h4><input id="chkReadFERPA" name="chkReadFERPA" type="checkbox" /><label for="chkReadFERPA" language="javascript">I have read the FERPA Statement above.</label></h4>
+</div>
+
+<p>&nbsp;</p>
+
+
+<script type="text/javascript">
+function checkSubmit(frm)
+{
+	
+	if(trimStr(frm.txtEmerg1FirstName.value)=="") { alert("Please enter a first name."); tryFocus(frm.txtEmerg1FirstName); return false; }
+	if(trimStr(frm.txtEmerg1LastName.value)=="") { alert("Please enter a last name."); tryFocus(frm.txtEmerg1LastName); return false; }
+	if(frm.txtEmerg1International.checked == true && trimStr(frm.txtEmerg1Notes.value)=="") { alert("Please enter valid, international phone/contact information.\n\nExample: Mom: (55) 123-456-890, Aunt Irma: +11.120.89054"); tryFocus(frm.txtEmerg1Notes); return false; }
+	if(frm.txtEmerg1International.checked == false && !isPhone(frm.txtEmerg1HomePhone.value)) { alert("Please enter valid, 10 digit home phone.\n\nThis may be the cell phone if this person has no home land-line phone.\n\nExample: (123) 456-7890"); tryFocus(frm.txtEmerg1HomePhone); return false; }
+	if(trimStr(frm.txtEmerg1MobilePhone.value)!="" && (frm.txtEmerg1International.checked == false && !isPhone(frm.txtEmerg1MobilePhone.value))) { alert("Please enter valid, 10 digit mobile phone.\n\nExample: (123) 456-7890"); tryFocus(frm.txtEmerg1HomePhone); return false; }
+	if(trimStr(frm.txtEmerg1Relationship.value)=="") { alert("Please enter a relationship."); tryFocus(frm.txtEmerg1Relationship); return false; }
+
+	if(frm.txtEmerg1International.checked == true)
+		frm.txtEmerg1HomePhone.value = "(978) 867-4500";
+	
+	if(trimStr(frm.txtEmerg2FirstName.value)=="") { alert("Please enter a first name."); tryFocus(frm.txtEmerg2FirstName); return false; }
+	if(trimStr(frm.txtEmerg2LastName.value)=="") { alert("Please enter a last name."); tryFocus(frm.txtEmerg2LastName); return false; }
+	if(frm.txtEmerg2International.checked == true && trimStr(frm.txtEmerg2Notes.value)=="") { alert("Please enter valid, international phone/contact information.\n\nExample: Mom: (55) 123-456-890, Aunt Irma: +11.120.89054"); tryFocus(frm.txtEmerg2Notes); return false; }
+	if(frm.txtEmerg2International.checked == false && !isPhone(frm.txtEmerg2HomePhone.value)) { alert("Please enter valid, 10 digit home phone.\n\nThis may be the cell phone if this person has no home land-line phone.\n\nExample: (123) 456-7890"); tryFocus(frm.txtEmerg2HomePhone); return false; }
+	if(trimStr(frm.txtEmerg2MobilePhone.value)!="" && (frm.txtEmerg2International.checked == false && !isPhone(frm.txtEmerg2MobilePhone.value))) { alert("Please enter valid, 10 digit mobile phone.\n\nExample: (123) 456-7890"); tryFocus(frm.txtEmerg2HomePhone); return false; }
+	if(trimStr(frm.txtEmerg2Relationship.value)=="") { alert("Please enter a relationship."); tryFocus(frm.txtEmerg2Relationship); return false; }
+
+	if(frm.txtEmerg2International.checked == true)
+		frm.txtEmerg2HomePhone.value = "(978) 867-4500";
+	
+
+	if(!isPhone(frm.txtCellPhone.value))
+	{
+		if(frm.chkNoCellPhone.checked!=true) { alert("Please enter your cell phone number and review the publish/privacy option, or opt out by checking the 'I do not use a cell phone' option."); tryFocus(frm.txtCellPhone); return false; }
+	}
+
+
+	var iEthnicity = null;
+	for(var i=0; i<frm.rdoEthnicity.length && iEthnicity==null; i++) {
+		if (frm.rdoEthnicity[i].checked == true)
+			iEthnicity = frm.rdoEthnicity[i].value;
+	}
+	if(iEthnicity==null) { alert("Please select a 'Ethnicity' value in the Federal Reporting Status section to continue."); return false; }
+	if((iEthnicity+"") != "-1") // if not hispanic, require at least one race option to be checked (can be unknown)
+	{
+		var bAnyRaces = false;
+		for(var i=0; i<frm.chkRaces.length && !bAnyRaces; i++) {
+			bAnyRaces = (frm.chkRaces[i].checked == true);
+		}
+		if(!bAnyRaces) { alert("Please select a 'Race' value in the Federal Reporting Status section to continue."); return false; }
+	}
+	
+	
+
+	if(frm.chkReadFERPA.checked != true) { alert("Please read the FERPA agreement and then check 'I agree...' to continue."); return false; }
+	return true;
+}
+function tryFocus(obj) {
+	if(obj != null && obj.focus) { try { obj.focus(); } catch(e) { } }
+	if(obj != null && obj.select) { try { obj.select(); } catch(e) { } }
+}
+function trimStr(str) {
+	return $.trim(str);
+}
+function isPhone(str) {
+	var parsed = parsePhone(str);
+	return (parsed != null && isFinite(parsed)
+		&& !(parsed == 0 || parsed == 1234567890 || parsed == 0123456789
+				 || parsed == 1111111111 || parsed == 2222222222 || parsed == 3333333333
+				  || parsed == 4444444444 || parsed == 5555555555 || parsed == 6666666666
+				   || parsed == 7777777777 || parsed == 8888888888 || parsed == 9999999999
+			)
+		);
+}
+function parsePhone(str) {
+	str = trimStr(str);
+	str = removeStr(str," ");
+	str = removeStr(str,".");
+	str = removeStr(str,"-");
+	str = removeStr(str,"(");
+	str = removeStr(str,")");
+
+	return (str.length >= 9 && str.length <= 20 && ((parseInt(str)*1)+"")==str) ? parseInt(str) : null;
+}
+function removeStr(strOrig,strFind) {
+	while(strOrig.indexOf(strFind)>-1) { strOrig = strOrig.replace(strFind,""); }
+	return strOrig;
+}
+</script>
+
+<center><input class="dosubmit" type="button" value="I hereby confirm check-in for FA 2018 >>" onClick="if(checkSubmit(this.form)) { this.form.submit(); }" /></center>
+
+
+</form>
+
+	
+
+			</td></tr>
+			</table>
+		</td></tr>
+		<tr><td>
+				<table cellspacing="0" cellpadding="3">
+				<tr bgcolor="#1C5E98">
+				<td class="medium" align="center"><img src="images/spacer.gif" alt="" width="794" height="40" border="0"></td></tr>
+				</table>
+		</td></tr>
+		</table>
+        </body>
+        </html>
+
