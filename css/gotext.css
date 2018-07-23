@@ -66,6 +66,3 @@ li {
 	font-weight: bold;
 	padding: 5px;
 }
-
-li.required {  color:red; }
-li.notrequired { color:gray; }
