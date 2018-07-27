@@ -1,13 +1,12 @@
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
 	font-size: .8em;
 	line-height : 2em;
 }
 
 h1 {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
 	font-size: 240%;
-	font-weight: bold;
 	color: #31342B;
 	text-align: center;
 	padding: 5px;
@@ -15,31 +14,33 @@ h1 {
 }
 
 h2 {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
 	font-size: 200%;
-	font-weight: bold;
 	color: #1D5E97;
 	margin-top : 25px;
 	margin-bottom : 10px;
 }
 
 h3 {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
 	font-size: 150%;
-	font-weight: bold;
 	color: #31342B;
 	padding: 10px;
 }
 
 h4 {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 150%;
-	font-weight: bold;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	font-size: 120%;
 	color: #31342B;
+	padding-left: 10px;
 }
 
 h5 { 
 	font-size:1.0em;
+}
+
+textarea {
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
 }
 
 A:link { 
@@ -54,15 +55,14 @@ A:hover {
 /* List styles */
 ul {
 	padding-left: 4em;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: x-small;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	font-size: small;
 	list-style-type: circle;
 	list-style-position: inside;
 }
 
 li {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	font-size: 120%;
 	padding: 5px;
 }

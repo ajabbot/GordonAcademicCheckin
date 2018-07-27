@@ -10,7 +10,7 @@
 		overflow: auto;
 		margin: 0;
 		position: absolute;
-		background-color: #8fcdfe;
+		background-color: #EBEAEA;
 	  }
 
   	.card {
@@ -82,11 +82,11 @@
 		}
 	}
 	
-		div.choice { 
-			border:1px solid gray; 
-			background-color:#EEEEEE; 
-			padding:10px; 
-			min-height:180px;
+	div.choice { 
+		border:1px solid gray; 
+		background-color:#EEEEEE; 
+		padding:10px; 
+		min-height:180px;
 	}
 
 	table, th, td {

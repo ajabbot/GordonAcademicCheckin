@@ -96,14 +96,15 @@
 					<h3>
 						<b>Who are your emergency contacts?</b>
 					</h3>
-					<h3>
-						<span style="color:red;font-weight:normal;">HIPAA regulations prohibit sharing of medical information regarding anyone age 18 or over without consent. </span>
-					</h3>
-					<h3>
-						<span style="color:red;font-weight:normal;">By listing emergency contacts below, I authorize the Gordon College staff to share medical information with my emergency
-							contact(s) during my enrollment at Gordon College. I hereby authorize Gordon College to contact the following person(s)
-							listed below in the event of a medical emergency. </span>
-					</h3>
+					<div style="padding-left: 20px">
+						HIPAA regulations prohibit sharing of medical information regarding anyone age 18 or over without consent.
+						<p>
+							<nbsp/>
+						</p>
+						By listing emergency contacts below, I authorize the Gordon College staff to share medical information with my emergency
+						contact(s) during my enrollment at Gordon College. I hereby authorize Gordon College to contact the following person(s)
+						listed below in the event of a medical emergency.
+					</div>
 
 					<h3>
 						<div class="tableContainer">
@@ -216,13 +217,17 @@
 					<h3>
 						<b>How should the College contact you?</b>
 					</h3>
-					<div style="padding: 10px">
+					<div style="padding-left: 25px">
+						Note: This number will be used to contact you in the event of issues with registration etc, not for emergencies. Your number
+						to be contacted in the event of an emergency will be requested at the end of this form.
+					</div>
+					<div>
 						<h3>
 							<div style="padding-bottom: 5px;">
 								<b>Cell Phone Number: </b>
 							</div>
 							<div>
-								<input type="tel" class="textInput" name="txtCellPhone" id="txtCellPhone" style="width:7.5em" placeholder="123-456-7890"
+								<input type="tel" class="textInput" name="txtCellPhone" id="txtCellPhone" style="width:7.5em" placeholder="860-555-1234"
 								/>
 							</div>
 						</h3>
@@ -230,7 +235,7 @@
 							<div>
 								<input type="checkbox" name="chkCellPhoneVisible" id="chkCellPhoneVisible" onClick="if(this.checked!=true){alert('This phone number will be made private from other students, but may still be used to contact you regarding critical College business.');}"
 								/> &nbsp;
-								<label for="chkCellPhoneVisible" style="font-weight:normal">Publish on People Search</label>
+								<label for="chkCellPhoneVisible" style="font-weight:normal">Make public on People Search</label>
 							</div>
 							<div>
 								<input type="checkbox" name="chkNoCellPhone" id="chkNoCellPhone" onClick="updateCellPhoneUI(); if(this.checked==true){alert('By not reporting a cell phone number, you are opting out of critical academic, billing, and account communications by telephone.\n\nYour legal/home/permanent phone number on file may be used for these purposes instead of a cell phone number.');}"
@@ -243,104 +248,91 @@
 
 				<p>&nbsp;</p>
 
-				<div class="choice" style="padding: 20px">
+				<div class="choice" style="padding: 10px">
 					<h3>
 						<b>Federal Reporting Status</b>
 					</h3>
 
-					<h5>The federal government has created new aggregate categories for reporting race and ethnicity. Reporting these will be
-						mandatory for Gordon College starting fall 2010. The categories describe groups to which individuals belong or identify
-						with, not scientific definitions of anthropological origins.</h5>
-					<h5>In order to transition to the new data standards, we need students to self-identify their ethnicity and race by responding
-						to two questions.</h5>
-					<h5>The first question asks students to designate ethnicity as either:
-						<ul>
-							<li>Hispanic or Latino
-								<br />or</li>
-							<li>Not Hispanic or Latino</li>
-						</ul>
-					</h5>
-					<h5>Note: The federal government considers “Hispanic/Latino” to be an ethnicity, not a race. It defines this ethnicity as:
-						A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture of origin, regardless
-						of race. That is why this question is asked separately and Hispanic/Latino is no longer listed as a race identification
-						category.
-					</h5>
-					<h5>The second question asks individuals to indicate one or more races that apply from the following (you can select multiple
-						categories):
-						<ul>
-							<li>American Indian or Alaska Native
-								<br />
-								<dd />(Having origins in any of the original peoples of North and South American (including Central America)
-							</li>
-							<li>Asian</li>
-							<li>Black or African American</li>
-							<li>Native Hawaiian or Other Pacific Islander</li>
-							<li>White
-								<br />
-								<dd />(Having origins in any of the original peoples of Europe, North Africa, or the Middle East)
-							</li>
-						</ul>
+					<textarea rows="10" cols="120" style="width:100%;" readonly="readonly">
+The federal government has created new aggregate categories for reporting race and ethnicity. Reporting these will be mandatory for Gordon College starting fall 2010. The categories describe groups to which individuals belong or identify with, not scientific definitions of anthropological origins.
+In order to transition to the new data standards, we need students to self-identify their ethnicity and race by responding to two questions.
 
-						<h3>Please provide the following information:</h3>
+The first question asks students to designate ethnicity as either:
+	Hispanic or Latino 
+	or
+	Not Hispanic or Latino
+Note: The federal government considers “Hispanic/Latino” to be an ethnicity, not a race. It defines this ethnicity as: A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture of origin, regardless of race. That is why this question is asked separately and Hispanic/Latino is no longer listed as a race identification category.
 
-						<div>
-							<div>
-								Ethnicity:
-							</div>
-							<div style="padding: 10px;">
+The second question asks individuals to indicate one or more races that apply from the following (you can select multiple categories):
+	American Indian or Alaska Native 
+	(Having origins in any of the original peoples of North and South American (including Central America)
+	Asian
+	Black or African American
+	Native Hawaiian or Other Pacific Islander
+	White 
+	(Having origins in any of the original peoples of Europe, North Africa, or the Middle East)
+					</textarea>
+					<h3>Please provide the following information:</h3>
 
-								<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-2" value="-2" />
-								<label for="rdoEthnicity_-2">Not Hispanic/Latino</label>
-								<br />
+					<div>
+						<h4>
+							Ethnicity:
+						</h4>
+						<div style="padding: 10px;">
 
-								<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-1" value="-1" />
-								<label for="rdoEthnicity_-1">Hispanic/Latino</label>
-								<br />
+							<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-2" value="-2" />
+							<label for="rdoEthnicity_-2">Not Hispanic/Latino</label>
+							<br />
 
-							</div>
+							<input type="radio" name="rdoEthnicity" id="rdoEthnicity_-1" value="-1" />
+							<label for="rdoEthnicity_-1">Hispanic/Latino</label>
+							<br />
+
 						</div>
+					</div>
 
-						<div>
-							<div>
-								Race:
-							</div>
-							<div style="padding: 10px;">
+					<div>
+						<h4>
+							Race:
+						</h4>
+						<div style="padding: 10px;">
 
-								<input type="checkbox" name="chkRaces" id="chkRaces_4" value="4" />
-								<label for="chkRaces_4">American Indian or Alaska Native</label>
-								<br />
+							<input type="checkbox" name="chkRaces" id="chkRaces_4" value="4" />
+							<label for="chkRaces_4">American Indian or Alaska Native</label>
+							<br />
 
-								<input type="checkbox" name="chkRaces" id="chkRaces_5" value="5" />
-								<label for="chkRaces_5">Asian</label>
-								<br />
+							<input type="checkbox" name="chkRaces" id="chkRaces_5" value="5" />
+							<label for="chkRaces_5">Asian</label>
+							<br />
 
-								<input type="checkbox" name="chkRaces" id="chkRaces_6" value="6" />
-								<label for="chkRaces_6">Black or African American</label>
-								<br />
+							<input type="checkbox" name="chkRaces" id="chkRaces_6" value="6" />
+							<label for="chkRaces_6">Black or African American</label>
+							<br />
 
-								<input type="checkbox" name="chkRaces" id="chkRaces_7" value="7" />
-								<label for="chkRaces_7">Native Hawaiian or Other Pacific Islander</label>
-								<br />
+							<input type="checkbox" name="chkRaces" id="chkRaces_7" value="7" />
+							<label for="chkRaces_7">Native Hawaiian or Other Pacific Islander</label>
+							<br />
 
-								<input type="checkbox" name="chkRaces" id="chkRaces_8" value="8" />
-								<label for="chkRaces_8">White</label>
-								<br />
+							<input type="checkbox" name="chkRaces" id="chkRaces_8" value="8" />
+							<label for="chkRaces_8">White</label>
+							<br />
 
-							</div>
 						</div>
-						<h5>
-							<i>For questions or more information regarding this section, please contact the registrar's office at 978.867.4243 or
-								<a href="mailto:registrar@gordon.edu">registrar@gordon.edu</a>.</i>
-						</h5>
+					</div>
+					<h5>
+						<i>For questions or more information regarding this section, please contact the registrar's office at 978.867.4243 or
+							<a href="mailto:registrar@gordon.edu">registrar@gordon.edu</a>.</i>
+					</h5>
 				</div>
 
 
 				<p>&nbsp;</p>
 
-				<div class="choice">
+				<div class="choice" style="padding: 10px">
 					<h3>
 						<b>Notification of Rights Under FERPA</b>
 					</h3>
+
 					<textarea rows="10" cols="120" style="width:100%;" readonly="readonly">
 The Family Educational Rights and Privacy Act (FERPA) affords students certain rights with respect to their education records.
 
@@ -389,18 +381,18 @@ Generic Campus Photographs
 
 Gordon College also arranges for photographs of classes, campus scenes, etc., to be taken for use in publications or the web site. The students in these photographs are not identified and the photos are simply to represent typical College scenes and events.   Please check below to indicate that you consent to having your photograph used in this way.
 
-I hereby agree that the College may use my photograph, without identification, in Gordon College publications or on the Gordon College website.	</textarea>
-					<p></p>
+I hereby agree that the College may use my photograph, without identification, in Gordon College publications or on the Gordon College website.
+					</textarea>
 
 					<h5>
 						<i>If you would like your information blocked, please contact the registrar's office at 978.867.4243 or
 							<a href="mailto:registrar@gordon.edu">registrar@gordon.edu</a>.</i>
 					</h5>
 
-					<h4>
+					<h3>
 						<input id="chkReadFERPA" name="chkReadFERPA" type="checkbox" />
 						<label for="chkReadFERPA" language="javascript">I have read the FERPA Statement above.</label>
-					</h4>
+					</h3>
 				</div>
 
 				<p>&nbsp;</p>
