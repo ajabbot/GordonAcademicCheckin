@@ -81,6 +81,20 @@
 			margin-bottom: 5vh;
 		}
 	}
+
+	/*Controls mobile table */
+
+	@media only screen and (max-width: 800px) {
+		.tableContainer {
+			visibility: collapse;
+		}
+	}
+	
+	@media only screen and (min-width: 801px) {
+		.mobileTableContainer {
+			visibility: collapse;
+		}
+	}
 	
 	div.choice { 
 		border:1px solid gray; 
@@ -95,7 +109,17 @@
 		padding: 5px
 	}
 
+	.centerTable {
+		width: 100%;
+  		text-align: center;
+	}
+
 	.tableContainer {
+		overflow-x:auto;
+	}
+
+	.mobileTableContainer {
+		display: inline-block;
 		overflow-x:auto;
 	}
 
